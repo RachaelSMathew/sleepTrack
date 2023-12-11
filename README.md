@@ -22,6 +22,8 @@ serializer = StudentSerializer(instance=student_to_update, data=request.data, pa
 
 urls.py: To call the view(POST, GET etc), we need to map it to a URL from .views import StudentView add to urls.py urlpatterns = [ path('students/', StudentView.as_view()) path('students/int:pk/', StudentView.as_view()) ]
 
+things i want to add to project: https://trello.com/b/Ic3mpKMk/sleeptrack-app
+
 add to backend/urls.py: To make it accessible to Django we will need to include students/urls.py into root URLconf. path('', include('students.urls')),
 
 connecting with backend from front end using axios(services.js file) import axios from 'axios';
