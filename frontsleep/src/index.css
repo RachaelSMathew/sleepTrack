@@ -1,0 +1,32 @@
+body {
+  margin: 0;
+  font-family: 'Castoro', serif !important;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/***custom css to change the table hover**/
+table.table>tbody>tr:hover td,
+table.table>tbody>tr:hover th {
+  background-color: lightblue !important;
+}
+/**custom css to change table background **/
+tr, td, th {
+  background-color: transparent !important;
+  border-color:  transparent !important;
+}
+
+/**custom css for button colors in tables**/
+.btn-warning {
+  background-color: #e7ca76 !important;
+  border-color: #e7ca76 !important;
+  color: #394858 !important;
+}
+.btn-info {
+  background-color: #AED6F1 !important;
+  border-color:  #AED6F1 !important;
+  color: #2b3642 !important;
+}
