@@ -71,7 +71,7 @@ urlpatterns = [
 
 **Add to backend/urls.py:**
 
-To make it accessible to Django we will need to include students/urls.py into root URLconf(i.e., root urls.py) in `urlpatterns`
+To make it accessible to Django we will need to include students/urls.py into root URLconf(i.e., the other urls.py that's not in the microservice folder) in `urlpatterns`
 
 `path('', include('students.urls'))`
 
