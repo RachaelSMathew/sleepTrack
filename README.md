@@ -49,7 +49,7 @@ cd fronendSleep
 npm install
 npm start
 ```
-**Go to [loacalhost:](http://localhost:3000/)**
+**Go to [loacalhost](http://localhost:3000/)**
 
 ## Django The Back-end
 ### Microservices
