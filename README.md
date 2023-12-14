@@ -8,10 +8,27 @@ I wanted to gain experience with creating a full-stack, so I made a website that
 
 ### Basically, I wanted to create a database that I could perform [CRUD](https://www.google.com/search?q=crud+operations&oq=crud+oper&gs_lcrp=EgZjaHJvbWUqDQgAEAAYgwEYsQMYgAQyDQgAEAAYgwEYsQMYgAQyDAgBEAAYFBiHAhiABDIGCAIQRRg5MgcIAxAAGIAEMgcIBBAAGIAEMgcIBRAAGIAEMgcIBhAAGIAEMgcIBxAAGIAEMgcICBAAGIAEMgcICRAAGIAE0gEIMTI1N2oxajeoAgCwAgA&sourceid=chrome&ie=UTF-8) operations to and have those results be displayed and updated in a front-end User Interface. 
 
-I chose to use Django because I had not worked with Backend tools before, and I already have experience with Python. Because this is a simple web app I'm creating, I thought it would be a good fit.
+I chose to use Django because I had not worked with Backend tools before and already have Python experience. Because this is a simple web app I'm creating, I thought it would be a good fit.
 
 In comparison, Node.js(though more popular) is for more complex client-side web apps and uses JavaScript. 
 
+### Virtual Environments 
+`venv`: used to create a separate, isolated instance of the Python runtime for a project, with its own complement of packages
+
+Example: `python3 -m venv [name of Virtual Enviorment]` 
+
+`deactivate`: leave virtual environment 
+
+**[Langflow Developer](https://gyliu513.medium.com/langflow-developer-quick-start-0506456756a8)**
+> In a nutshell, Python virtual environments help decouple and isolate Python installs and associated pip packages. This allows end-users to install and manage their own set of packages that are independent of those provided by the system or used by other projects.
+
+**From [Towards Science](https://towardsdatascience.com/why-you-should-use-a-virtual-environment-for-every-python-project-c17dab3b0fd0):**
+
+> I like to think of virtual environments as package bookshelves for each of my projects. If I’m working on a cooking project, there is no need for me to have a book on surfing. Similarly, if I’m working on a machine learning project, there is no need for me to have a library for front-end. Having only the packages I need on my “bookshelf” eliminates all chances for me to possibly experience gross global installation and package collision errors and allows me to focus on what really matters — my code.
+
+
+### General Structure
+![General Structure](https://miro.medium.com/v2/resize:fit:1318/format:webp/1*QFp_3sJYpHL-M-fwyYGmRw.png)
 ## Running the Application
 
 ## Django The Back-end
