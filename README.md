@@ -1,7 +1,10 @@
 ### Project inspired by this [Medium Article](https://medium.com/@fizaashraf37/develop-a-crud-application-using-django-and-react-part-1-2e8927a1e0c8)
 
 ## Background
-I wanted to gain experience with creating a full-stack, so I made a website that could track the sleep periods users had and visually displayed the hours using a line chart. Additionally, I created a way for a user to track their dreams and visually display the types of dreams they've had using a pie chart. 
+I wanted to gain experience with creating a full-stack, so I made a website that could:
+
+- track the sleep periods users had and visually display the hours using a line chart
+- track their dreams and visually display the types of dreams they've had using a pie chart
 
 ### Basically, I wanted to create a database that I could perform [CRUD](https://www.google.com/search?q=crud+operations&oq=crud+oper&gs_lcrp=EgZjaHJvbWUqDQgAEAAYgwEYsQMYgAQyDQgAEAAYgwEYsQMYgAQyDAgBEAAYFBiHAhiABDIGCAIQRRg5MgcIAxAAGIAEMgcIBBAAGIAEMgcIBRAAGIAEMgcIBhAAGIAEMgcIBxAAGIAEMgcICBAAGIAEMgcICRAAGIAE0gEIMTI1N2oxajeoAgCwAgA&sourceid=chrome&ie=UTF-8) operations to and have those results be displayed and updated in a front-end User Interface. 
 
