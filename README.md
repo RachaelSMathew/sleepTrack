@@ -12,6 +12,11 @@ I chose to use Django because I had not worked with Backend tools before and alr
 
 In comparison, Node.js(though more popular) is for more complex client-side web apps and uses JavaScript. 
 
+### General Structure
+![General Structure](https://miro.medium.com/v2/resize:fit:1318/format:webp/1*QFp_3sJYpHL-M-fwyYGmRw.png)
+
+## Running the Application
+
 ### Virtual Environments 
 `venv`: used to create a separate, isolated instance of the Python runtime for a project, with its own complement of packages
 
@@ -25,11 +30,6 @@ Example: `python3 -m venv [name of Virtual Enviorment]`
 **From [Towards Science](https://towardsdatascience.com/why-you-should-use-a-virtual-environment-for-every-python-project-c17dab3b0fd0):**
 
 > I like to think of virtual environments as package bookshelves for each of my projects. If I’m working on a cooking project, there is no need for me to have a book on surfing. Similarly, if I’m working on a machine learning project, there is no need for me to have a library for front-end. Having only the packages I need on my “bookshelf” eliminates all chances for me to possibly experience gross global installation and package collision errors and allows me to focus on what really matters — my code.
-
-
-### General Structure
-![General Structure](https://miro.medium.com/v2/resize:fit:1318/format:webp/1*QFp_3sJYpHL-M-fwyYGmRw.png)
-## Running the Application
 
 ## Django The Back-end
 ### Microservices
