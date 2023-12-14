@@ -44,9 +44,9 @@ pip install djangorestframework
 ### Microservices
 Django has multiple microservices/apps (i.e., smaller features of a larger web application)
 
-Example code: 
+Start by creating a microservice: `python manage.py startapp [microservice]`
 
-Creating a microservice called students: `python manage.py startapp students`
+I made two microservices, one for tracking sleep and one for dreams.
 
 ### Migrations folder
 Django models: an instruction manuel that tells Django how to make a database(i.e., the type of coloumns a DB should have and the coloumn types)
