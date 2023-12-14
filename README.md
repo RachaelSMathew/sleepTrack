@@ -1,4 +1,5 @@
-inspired by: https://medium.com/@fizaashraf37/develop-a-crud-application-using-django-and-react-part-1-2e8927a1e0c8 Django has multiple apps: You can consider an app a microservice if you are familiar with microservice architecture python manage.py startapp students
+##inspired by: https://medium.com/@fizaashraf37/develop-a-crud-application-using-django-and-react-part-1-2e8927a1e0c8
+Django has multiple apps: You can consider an app a microservice if you are familiar with microservice architecture python manage.py startapp students
 
 migrations folder inside app: will contain the code for migrating Django models into Database e.g. Create table migrations. views: [integration] logic for handling the HTTP requests e.g. GET, POST, PUT, DELETE etc.
 
