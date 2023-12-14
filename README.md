@@ -71,7 +71,7 @@ urlpatterns = [
 
 **Add to backend/urls.py:**
 
-To make it accessible to Django we will need to include students/urls.py into root URLconf in `urlpatterns`
+To make it accessible to Django we will need to include students/urls.py into root URLconf(i.e., root urls.py) in `urlpatterns`
 
 `path('', include('students.urls'))`
 
