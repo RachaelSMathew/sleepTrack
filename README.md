@@ -3,12 +3,12 @@
 ## Running the Application
 
 ## Django The Back-end
-#### Microservices
+### Microservices
 Django has multple microservices/apps (i.e., smaller features of a larger web application)
 
 creating a microservice called students: `python manage.py startapp students`
 
-#### Migrations folder
+### Migrations folder
 Django models: an instruction manuel that tells Django how to make a database(i.e., the type of coloumns a DB should have and the coloumn types)
 
 Calling the migrations command will convert Django models into a DB
@@ -19,7 +19,7 @@ Generate migrations script for your app: `python manage.py makemigrations studen
 
 Run migration(actually creating the DB): `python manage.py migrate`
 
-#### views.py
+### views.py
 Integration logic for handling the HTTP requests e.g. GET, POST, PUT, DELETE etc.
 
 ### settings.py 
@@ -31,24 +31,51 @@ Add apps to INSTALLED_APPS: 'corsheaders','rest_framework', migration has create
 ### run server
 `python manage.py runserver`
 
-admin.py: models will be registered in this file so that these can be managed from Django admin panel. 
-code: from .models import Student
+### admin.py
 
-models_list = [Student] admin.site.register(models_list)
+Models will be registered in this file so that these can be managed from Django admin panel. 
+```
+from .models import Student
 
-![https://miro.medium.com/v2/resize:fit:1400/format:webp/1*j6tuHWpfG1k357tcdmzf-g.png](admin panel) You can add, delete, update student objects from admin panel
+models_list = [Student]
+admin.site.register(models_list)
+```
 
-serializers: validates data first complex data such as querysets and model instances to be converted to native Python datatypes that can then be easily rendered into JSON, XML or other content types. Serializers also provide deserialization, allowing parsed data to be converted back into complex types, after first validating Serializer provides a function to validate the data provided by user. If the data does not contain any invalid field then we can save the object in the table. Serializer.save will convert the data into model object and save this object into database table.
+#### You can add, delete, update student objects from admin panel
+![Django Admin panel](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*j6tuHWpfG1k357tcdmzf-g.png) 
 
-serializer = StudentSerializer(instance=student_to_update, data=request.data, partial=True) partial=True to allow the user to pass some or all fields in payload. Since user might not be updating all fields.
+### Serializers
 
-urls.py: To call the view(POST, GET etc), we need to map it to a URL from .views import StudentView add to urls.py urlpatterns = [ path('students/', StudentView.as_view()) path('students/int:pk/', StudentView.as_view()) ]
+Validates data being inputed into Django databases, makes sure correct all the fields and field types are present. 
 
-#### [Things i want to add to project](https://trello.com/b/Ic3mpKMk/sleeptrack-app)
+Serializer.save will convert the data into model object and save this object into database table.
 
-add to backend/urls.py: To make it accessible to Django we will need to include students/urls.py into root URLconf. path('', include('students.urls')),
+Converts complex data such as querysets and model instances into native Python datatypes that can then be easily rendered into JSON, XML or other content types. 
 
-## Axios: Connecting back to front end using services.js file 
+#### Deserialization
+Parsed data converted back into complex types, after first validating Serializer provides a function to validate the data provided by user. 
+
+Code: `serializer = StudentSerializer(instance=student_to_update, data=request.data, partial=True)`
+`partial=True` to allow the user to pass some or all fields into DB. When user isn't updating all fields.
+
+### urls.py
+To call the view(POST, GET etc), we need to map it to a URL 
+
+```
+from .views import StudentView 
+urlpatterns = [
+ path('students/', StudentView.as_view())
+ path('students/int:pk/', StudentView.as_view())
+]
+```
+
+**Add to backend/urls.py:**
+
+To make it accessible to Django we will need to include students/urls.py into root URLconf in `urlpatterns`
+
+`path('', include('students.urls'))`
+
+### Axios: Connecting back to front end using services.js file 
 Example of code: 
 
 ```
@@ -57,3 +84,5 @@ export function getStudents() { // do the same for delete(i.e., DELETE), update(
  return axios.get('http://127.0.0.1:8000/students/') .then(response => response.data)
 }
 ```
+#### [Things i want to add to project](https://trello.com/b/Ic3mpKMk/sleeptrack-app)
+
