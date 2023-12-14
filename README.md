@@ -39,6 +39,17 @@ source bin/activate //activates enviorment
 pip install django
 pip install djangorestframework
 ```
+### Running the Project
+```
+git clone https://github.com/RachaelSMathew/sleepTrack.git
+cd backendSleep
+python manage.py runserver
+cd ..
+cd fronendSleep
+npm install
+npm start
+```
+**Go to [loacalhost:](http://localhost:3000/)**
 
 ## Django The Back-end
 ### Microservices
