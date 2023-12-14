@@ -84,5 +84,5 @@ export function getStudents() { // do the same for delete(i.e., DELETE), update(
  return axios.get('http://127.0.0.1:8000/students/') .then(response => response.data)
 }
 ```
-#### [Things i want to add to project](https://trello.com/b/Ic3mpKMk/sleeptrack-app)
+#### [Things I want to add to the project](https://trello.com/b/Ic3mpKMk/sleeptrack-app)
 
