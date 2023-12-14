@@ -17,7 +17,7 @@ In comparison, Node.js(though more popular) is for more complex client-side web 
 
 ## Running the Application
 
-### Virtual Environments 
+### Virtual Environments: Where our project will be created
 `venv`: used to create a separate, isolated instance of the Python runtime for a project, with its own complement of packages
 
 Example: `python3 -m venv [name of Virtual Enviorment]` 
