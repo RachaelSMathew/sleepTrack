@@ -124,5 +124,21 @@ export function getStudents() { // do the same for delete(i.e., DELETE), update(
  return axios.get('http://127.0.0.1:8000/students/') .then(response => response.data)
 }
 ```
+
+**How to call from front end React**
+```
+import { getStudents } from '../services/studentServices';
+...
+useEffect(() => {
+...
+ getStudents()
+   .then(data => {
+     if(mounted) { //mounted is a true boolean after the page has just finished loading 
+       setStudents(data);
+     }
+   })
+...
+}, [students])
+```
 #### [Things I want to add to the project](https://trello.com/b/Ic3mpKMk/sleeptrack-app)
 
