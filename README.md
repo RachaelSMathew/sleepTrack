@@ -43,8 +43,11 @@ pip install djangorestframework
 ```
 git clone https://github.com/RachaelSMathew/sleepTrack.git
 cd backendSleep
+cd backend
 python manage.py runserver
-cd ..
+```
+In another terminal go to sleepTrack folder 
+```
 cd fronendSleep
 npm install
 npm start
