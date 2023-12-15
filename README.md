@@ -77,7 +77,12 @@ Run migration(actually creating the DB): `python manage.py migrate`
 Integration logic for handling the HTTP requests e.g. GET, POST, PUT, DELETE etc.
 
 ### settings.py 
-Add apps to INSTALLED_APPS: 'corsheaders','rest_framework', migration has created the models from Django default apps and our student app which are included in INSTALLED_APPS inside settings.py.
+When you make new app/microservice-add to settings.py 
+
+Migration creates the models from Django INSTALLED_APPS inside settings.py 
+
+- Add to INSTALLED_APPS: 'corsheaders','rest_framework'
+- add `[microservice].apps.DailydreamConfig` to INSTALLED_APPS
 
 ### create an admin
 `python manage.py createsuperuser`
