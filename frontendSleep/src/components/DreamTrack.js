@@ -10,7 +10,7 @@ import  'bootstrap/dist/css/bootstrap.css';
 import { getDream, deleteDreams } from '../services/dreamServices';
 import DoughnutChart from "../components/DoughnutChart";
 
-const DreamTrack = () => {
+const DreamTrack = (props) => {
   const [addModalShow, setAddModalShow] = useState(false);
   const [isUpdated, setIsUpdated] = useState(false);
   const [dreams, setDreams] = useState([]);
@@ -82,6 +82,7 @@ const DreamTrack = () => {
     getDream()
       .then(data => {
         if(mounted) {
+          data = data.filter((x) => x.username === props.username)
           setDreams(data);
           updateD(data);
         }
@@ -130,7 +131,8 @@ const DreamTrack = () => {
       <AddDreamModal 
       show={addModalShow} 
       setupdated={setIsUpdated} 
-      onHide={AddModelClose}>
+      onHide={AddModelClose}
+      username = {props.username}>
       </AddDreamModal>
     </div>
       <div class="col-sm" style={{marginTop: 3+"em"}}>

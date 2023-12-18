@@ -21,7 +21,8 @@ export async function addDream(dream){
         dreamId: null,
         dreamDate: dream.dreamDate,
         dreamType: dream.dreamType,
-        dreamThing: dream.dreamThing
+        dreamThing: dream.dreamThing,
+        username: dream.username
     });
     return response.data;
 }
@@ -30,7 +31,8 @@ export async function updateDream(dreamId, dream) {
     const response = await axios.put('http://127.0.0.1:8000/dailydreams/' + dreamId + '/', {
         dreamDate: dream.dreamDate,
         dreamType: dream.dreamType,
-        dreamThing: dream.dreamThing
+        dreamThing: dream.dreamThing,
+        username: dream.username
     });
     return response.data;
 }

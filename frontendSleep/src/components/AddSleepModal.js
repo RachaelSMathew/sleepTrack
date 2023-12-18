@@ -13,7 +13,7 @@ const AddSleepModal = (props) => {
     const [end, setEnd] = useState(null);
     const handleSubmit = (e) => {
         e.preventDefault();
-        addSleep({start: start, end: end})
+        addSleep({username: props.username, start: start, end: end})
         .then((result)=>{
             props.setupdated(true);
             setStart(null)

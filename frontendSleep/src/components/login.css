@@ -1,0 +1,19 @@
+/** taken from https://codepen.io/P1N2O/pen/pyBNzX **/
+.login-background{
+	background: linear-gradient(-45deg, #a2cfdf, #9e8dbe, #d1c68f, #23d5ab90);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	height: 100vh;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	80% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}

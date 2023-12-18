@@ -7,14 +7,14 @@ from .serializers import SleepSerializer
 # Create your views here.
 
 class SleepView(APIView):
-
+    
     def post(self, request):
         data = request.data
         serializer = SleepSerializer(data=data)
 
         if serializer.is_valid():
             serializer.save()
-            return JsonResponse("Sleep Added Successfully",          safe=False)
+            return JsonResponse("Sleep Added Successfully", safe=False)
         return JsonResponse("Failed to Add Sleep", safe=False)
     
     def get_sleep(self, pk):

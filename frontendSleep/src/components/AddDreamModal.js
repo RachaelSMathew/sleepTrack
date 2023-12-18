@@ -32,7 +32,7 @@ const AddDreamModal = (props) => {
         setDreamType(dreamType.replace("\"", "").replace(sub, "")); 
     }
     const handleSubmit = () => {
-        addDream({dreamDate: dayjs(), dreamType: dreamType, dreamThing: dreamThing})
+        addDream({username: props.username, dreamDate: dayjs(), dreamType: dreamType, dreamThing: dreamThing})
         .then((result)=>{
             props.setupdated(true);
             setDreamType("")

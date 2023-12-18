@@ -3,7 +3,24 @@ import "../App.css";
 import SleepTrack from "./SleepTrack";
 import DreamTrack from "./DreamTrack";
 import "./SunriseBack.css";
-const Home = () => {
+import {useEffect, useState} from "react";
+export function  Home () {
+  const [username, setUsername] = useState('');
+     useEffect(() => {
+        if(localStorage.getItem('access_token') === null){                   
+            window.location.href = '/login'
+        }
+        else{
+         (async () => {
+           try {
+            /*** https://drive.google.com/file/d/1BqKO1gakcb5xCSHrw0OfswDM8gae0SEg/view?usp=sharing */
+             setUsername(localStorage.getItem('username'));
+          } catch (e) {
+            console.log('not auth')
+          }
+         })()};
+     }, []);
+    
   const settings = {
     canvas: {
       canvasFillSpace: true,
@@ -39,7 +56,7 @@ const Home = () => {
 
     return (
       <>
-      <h1 class="text-center" style={{marginTop: 1+"em"}}>How terrible is your sleep?</h1>
+      <h1 class="text-center" style={{marginTop: 1+"em"}}>Hi {username}, how terrible is your sleep?</h1>
       <div class="sky">
       <div class="sky__phase sky__dawn"></div>
       <div class="sky__phase sky__noon"></div>
@@ -55,10 +72,8 @@ const Home = () => {
       </div>
       </div>
 
-      <SleepTrack />
-      <DreamTrack />
+      <SleepTrack username={username}/>
+      <DreamTrack username={username}/>
     </>
    );
- };
- 
- export default Home;
+ }

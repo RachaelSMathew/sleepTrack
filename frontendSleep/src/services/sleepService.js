@@ -20,7 +20,8 @@ export async function addSleep(sleep){
     const response = await axios.post('http://127.0.0.1:8000/dailysleep/', {
         studentId: null,
         start: sleep.start,
-        end: sleep.end
+        end: sleep.end,
+        username: sleep.username
     });
     return response.data;
 }
@@ -29,6 +30,7 @@ export async function updateSleep(sleid, sleep) {
     const response = await axios.put('http://127.0.0.1:8000/dailysleep/' + sleid + '/', {
         start: sleep.start,
         end: sleep.end,
+        username: sleep.username
     });
     return response.data;
 }

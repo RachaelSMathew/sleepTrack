@@ -30,7 +30,7 @@ function sortDataBy (data, byKey){
   return sortedData;
 }
 
-const SleepTrack = () => {
+const SleepTrack = (props) => {
   const [sleep, setSleep] = useState([]);
   const [addModalShow, setAddModalShow] = useState(false);
   const [editModalShow, setEditModalShow] = useState(false);
@@ -106,6 +106,8 @@ const SleepTrack = () => {
     getSleep()
       .then(data => {
         if(mounted) {
+          data = data.filter((x) => x.username === props.username)
+          console.log(data)
           setSleep(data);
           updateS(data)
         }
@@ -133,7 +135,7 @@ const SleepTrack = () => {
           </tr>
       </thead>
       <tbody>
-          {sleep.map((stu) =>
+          {sleep.map((stu) => 
           <tr key={stu.sleepId}>
             <th scope="row">{dayjs(stu.start.substring(0, stu.start.indexOf("T"))).format('MMM D')}</th>
               <td>{dayjs(stu.start).format('hh:mm a')}</td>
@@ -156,11 +158,12 @@ const SleepTrack = () => {
             </tr>)}
         </tbody>
     </Table>
-    <Button className="btn-info" onClick={handleAdd}>Add Student</Button>
+    <Button className="btn-info" onClick={handleAdd}>Add Sleep</Button>
     <AddSleepModal 
       show={addModalShow} 
       setupdated={setIsUpdated} 
-      onHide={AddModelClose}>
+      onHide={AddModelClose}
+      username={props.username} >
     </AddSleepModal>
     </div>
     </div>

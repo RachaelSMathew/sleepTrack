@@ -6,6 +6,7 @@ class DreamSerializer(serializers.ModelSerializer):
     class Meta:
         model = DailyDream
         fields = ('dreamId',
+                  'username',
                   'dreamDate',
                   'dreamType',
                   'dreamThing')
