@@ -58,7 +58,7 @@ export function Register() {
               <input className="form-control mt-1" 
                 placeholder="Enter Username" 
                 name='username'  
-                type='text' value={password}
+                type='password' value={password}
                 required 
                 onChange={e => setPassword(e.target.value)}/>
             </div>
