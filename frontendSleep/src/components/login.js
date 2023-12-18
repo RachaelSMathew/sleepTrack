@@ -6,6 +6,7 @@ import {useState} from "react";
 export function Login() {
      const [username, setUsername] = useState('');
      const [password, setPassword] = useState('');
+     const [wrongInfo, setWrongInfo] = useState(false)
      // Create the submit method.
      const submit = async e => {
           e.preventDefault();
@@ -17,8 +18,13 @@ export function Login() {
           const {data} = await                                                                            
                          axios.post('http://localhost:8000/token/',
                          user, {headers: {'Content-Type': 'application/json'}},
-                         {withCredentials: true});
-
+                         {withCredentials: true})
+          if(data == null) {
+            // if user gives wrong login credentials, don't log in
+            setWrongInfo(true)
+            return;
+          }
+          
          // Initialize the access & refresh token in localstorage.      
          localStorage.clear();
          localStorage.setItem('access_token', data.access);
@@ -32,6 +38,7 @@ export function Login() {
         <form className="Auth-form" style={{borderRadius: "10%", boxShadow:'0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)'}} onSubmit={submit}>
           <div className="Auth-form-content" style={{padding: "40px"}}>
             <h3 className="Auth-form-title">Sign In</h3>
+            {wrongInfo ? <h3 style={{color:"red"}}>Wrong Email or Password</h3>: null}
             <div className="form-group mt-3">
               <label>Username</label>
               <input className="form-control mt-1" 
