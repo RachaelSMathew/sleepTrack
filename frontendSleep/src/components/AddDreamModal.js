@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
-import {Modal, Form, Button} from 'react-bootstrap';
+import {Modal, Button} from 'react-bootstrap';
 import {FormGroup} from 'react-bootstrap';
 import { addDream } from '../services/dreamServices';
 import dayjs from "dayjs";
 import TextField from '@mui/material/TextField';
-import { spacing } from '@mui/system';
 import CloseButton from 'react-bootstrap/CloseButton';
-import { Hidden } from '@mui/material';
 
 
 const AddDreamModal = (props) => {
@@ -32,7 +30,7 @@ const AddDreamModal = (props) => {
         setDreamType(dreamType.replace("\"", "").replace(sub, "")); 
     }
     const handleSubmit = () => {
-        addDream({username: props.username, dreamDate: dayjs(), dreamType: dreamType, dreamThing: dreamThing})
+        addDream({dreamDate: dayjs(), dreamType: dreamType, dreamThing: dreamThing})
         .then((result)=>{
             props.setupdated(true);
             setDreamType("")
@@ -60,10 +58,10 @@ const AddDreamModal = (props) => {
       <div class="modal-body">
           <form onSubmit={handleSubmitType}>
             <div style={{flexWrap: "wrap", display: "inline-flex"}}>
-                {(dreamType.split(/,| /)).map((sub) =>
+                {(dreamType.split(/,| /)).map((sub, index) =>
                 sub == "" || sub == " " ?
                 null : 
-                <div style={{borderRadius: 60, fontSize: 1.2+"em", padding: 10, background: "#ade185", }}>{sub} <CloseButton onClick={() => removeSub(sub)}/></div>
+                <div key={index} style={{borderRadius: 60, fontSize: 1.2+"em", padding: 10, background: "#ade185", }}>{sub} <CloseButton onClick={() => removeSub(sub)}/></div>
                 )}
                 </div>
                 <TextField fullWidth 

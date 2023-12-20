@@ -82,7 +82,6 @@ const DreamTrack = (props) => {
     getDream()
       .then(data => {
         if(mounted) {
-          data = data.filter((x) => x.username === props.username)
           setDreams(data);
           updateD(data);
         }

@@ -106,8 +106,6 @@ const SleepTrack = (props) => {
     getSleep()
       .then(data => {
         if(mounted) {
-          data = data.filter((x) => x.username === props.username)
-          console.log(data)
           setSleep(data);
           updateS(data)
         }
@@ -123,9 +121,9 @@ const SleepTrack = (props) => {
     //<div class="row" and div class = "container" used to add margins to components on pages 
    return(
     <div className="container-fluid side-container">
-    <div class="container">
-    <div class="row"> 
-    <div class="col-sm">
+    <div className="container">
+    <div className="row"> 
+    <div className="col-sm">
     <Table striped hover="dark" style={{marginTop: 2 + 'em'}}>
       <thead>
           <tr>
@@ -167,8 +165,8 @@ const SleepTrack = (props) => {
     </AddSleepModal>
     </div>
     </div>
-    <div class="row">
-    <div class="col-sm">
+    <div className="row">
+    <div className="col-sm">
     <LineChart chartData={data} />
     </div>
     </div>

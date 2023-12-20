@@ -51,24 +51,24 @@ export function  Home () {
     for (let i = 0; i < stars; i++) {
       let x = Math.floor(Math.random() * 100 + 1);
       let y = Math.floor(Math.random() * 100 + 1);
-      starsArr.push(<div style={{left: `${x}%`, top: `${y}%`}}></div>)
+      starsArr.push(<div key={i} style={{left: `${x}%`, top: `${y}%`}}></div>)
     }
 
     return (
       <>
-      <h1 class="text-center" style={{marginTop: 1+"em"}}>Hi {username}, how terrible is your sleep?</h1>
-      <div class="sky">
-      <div class="sky__phase sky__dawn"></div>
-      <div class="sky__phase sky__noon"></div>
-      <div class="sky__phase sky__dusk"></div>
-      <div class="sky__phase sky__midnight">
+      <h1 className="text-center" style={{marginTop: 1+"em"}}>Hi {username}, how terrible is your sleep?</h1>
+      <div className="sky">
+      <div className="sky__phase sky__dawn"></div>
+      <div className="sky__phase sky__noon"></div>
+      <div className="sky__phase sky__dusk"></div>
+      <div className="sky__phase sky__midnight">
       <div id="sky__stars">
       {starsArr}
       </div>
       </div>
-      <div class="orbit">
-      <div class="sun"></div>
-      <div class="moon"></div>
+      <div className="orbit">
+      <div className="sun"></div>
+      <div className="moon"></div>
       </div>
       </div>
 

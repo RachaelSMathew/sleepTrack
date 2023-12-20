@@ -11,26 +11,16 @@ class DreamView(APIView):
     def post(self, request):
         data = request.data
         serializer = DreamSerializer(data=data)
-
         if serializer.is_valid():
             serializer.save()
             return JsonResponse("Dream Added Successfully", safe=False)
         return JsonResponse("Failed to Add Dream", safe=False)
     
-    def get_dream(self, pk):
-        try:
-            dream = DailyDream.objects.get(dreamId=pk)
-            return dream
-        except DailyDream.DoesNotExist:
-            raise Http404
-
     def get(self, request, pk=None):
-        if pk:
-            data = self.get_dream(pk)
-            serializer = DreamSerializer(data)
-        else:
-            data = DailyDream.objects.all()
-            serializer = DreamSerializer(data, many=True)
+        data = DailyDream.objects.filter(
+            userNameAddS__exact=request.GET.get('username', '')
+        )
+        serializer = DreamSerializer(data, many=True)
         return Response(serializer.data)
     
 

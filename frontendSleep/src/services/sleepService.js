@@ -1,8 +1,10 @@
 import axios from 'axios';
 
+const userAddString = localStorage.getItem('username') + "sss"
+
 export function getSleep() {
-  return axios.get('http://127.0.0.1:8000/dailysleep/')
-    .then(response => response.data)
+  return axios.get('http://127.0.0.1:8000/dailysleep/?username=' + userAddString)
+  .then(response => response.data)
 }
 
 export function deleteSleep(sleepId) {
@@ -21,7 +23,7 @@ export async function addSleep(sleep){
         studentId: null,
         start: sleep.start,
         end: sleep.end,
-        username: sleep.username
+        userAddS: userAddString
     });
     return response.data;
 }
@@ -30,7 +32,7 @@ export async function updateSleep(sleid, sleep) {
     const response = await axios.put('http://127.0.0.1:8000/dailysleep/' + sleid + '/', {
         start: sleep.start,
         end: sleep.end,
-        username: sleep.username
+        userAddS: userAddString
     });
     return response.data;
 }
