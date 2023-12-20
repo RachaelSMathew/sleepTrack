@@ -8,6 +8,7 @@ export function Register() {
      const [password, setPassword] = useState('');
      const [email, setEmail] = useState('');
      const [confirmPass, setConfirmPass] = useState('');
+     const [wrongCred, setWrongCred] = useState(false)
      // Create the submit method.
      const submit = async e => {
           e.preventDefault();
@@ -21,6 +22,11 @@ export function Register() {
                          axios.post('http://localhost:8000/register/',
                          user, {headers: {'Content-Type': 'application/json'}},
                          {withCredentials: true});
+          if(data == null) {
+            // if user gives username/email already exists
+            setWrongCred(true)
+            return;
+          }
 
          // Initialize the access & refresh token in localstorage.      
          localStorage.clear();
@@ -35,6 +41,7 @@ export function Register() {
         <form className="Auth-form" onSubmit={submit}>
           <div className="Auth-form-content" style={{padding: "40px"}}>
             <h3 className="Auth-form-title">Sign Up</h3>
+            {wrongCred ? <h3 style={{color: "red"}}>Username or Email already exists</h3> : null}
             <div className="form-group mt-3">
               <label>Username</label>
               <input className="form-control mt-1" 
