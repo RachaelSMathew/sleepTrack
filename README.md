@@ -162,9 +162,9 @@ useEffect(() => {
 ```
 ## Creating Login/Registration System
 
-### **Two Methods**: Session Auth and JWT Tokens:
+### **Two Methods**: [Session Auth and JWT Tokens](https://www.youtube.com/watch?v=Qx5hDC33xQU)
 
-### **Session Auth**: If the front and back end of the site are hosted on one domain
+**Session Auth(Default with Django)**: If the front and back end of the site are hosted on one domain
 
 **Token-based auth**: If backend is Django and front end is react, then front end is probably on different domains
 You can still use Session Auth if diff domains, but you need to use `X-CSRFToken` in the request header, esp for POST/DELETE where BE data will change!
@@ -173,7 +173,7 @@ You can still use Session Auth if diff domains, but you need to use `X-CSRFToken
 
 >This type of attack occurs when a malicious website contains a link, a form button or some JavaScript that is intended to perform some action on your website, using the credentials of a logged-in user who visits the malicious site in their browser. A related type of attack, ‘login CSRF’, where an attacking site tricks a user’s browser into logging into a site with someone else’s credentials, is also covered.
 
-**Session auth using [this tutorial](https://www.youtube.com/watch?v=diB38AvVkHw&t=502s)**
+### **Session auth using [this tutorial](https://www.youtube.com/watch?v=diB38AvVkHw&t=502s)**
 1. User sends login credentials 
 2. Server validates and makes sessions
 3. Sessions stored in the backend 
