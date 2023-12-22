@@ -46,6 +46,8 @@ pip install --upgrade djangorestframework-simplejwt
 git clone https://github.com/RachaelSMathew/sleepTrack.git
 cd backendSleep
 cd backend
+python manage.py makemigrations //if this asks you about having default values, choose option 1 and default value "null"
+python manage.py migrate
 python manage.py runserver
 ```
 In another terminal go to sleepTrack folder 
