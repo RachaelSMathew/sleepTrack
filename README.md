@@ -57,6 +57,7 @@ npm install
 npm start
 ```
 **Front end view: [localhost](http://localhost:3000/)**
+
 **Back end view(you can see all the users and DB): [localhost](http://localhost:8000/admin/)**
 
 ## Django The Back-end
