@@ -52,11 +52,12 @@ python manage.py runserver
 ```
 In another terminal go to sleepTrack folder 
 ```
-cd fronendSleep
+cd frontendSleep
 npm install
 npm start
 ```
-**Go to [loacalhost](http://localhost:3000/)**
+**Front end view: [localhost](http://localhost:3000/)**
+**Back end view(you can see all the users and DB): [localhost](http://localhost:8000/admin/)**
 
 ## Django The Back-end
 ### Microservices
