@@ -189,7 +189,7 @@ Add to MIDDLEWARE: corsheaders.middleware.CorsMiddleware
 CORS_ALLOWED_ORIGINS to true to allow interaction with React
 CORS_ALLOWED_CREDENTIALS to true
 ```
-### **So, I ended up following [this JWT Token tutorial](Jet auth: https://medium.com/@ronakchitlangya1997/jwt-authentication-with-react-js-and-django-c034aae1e60d)**
+### **So, I ended up following [this JWT Token tutorial](https://medium.com/@ronakchitlangya1997/jwt-authentication-with-react-js-and-django-c034aae1e60d)**
 
 In terminal: `pip install --upgrade djangorestframework-simplejwt`
 
