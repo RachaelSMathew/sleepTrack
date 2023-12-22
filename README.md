@@ -160,5 +160,39 @@ useEffect(() => {
 ...
 }, [students])
 ```
+## Creating Login/Registration System
+
+**Two Methods**: Session Auth and JWT Tokens:
+
+**Session auth using [this tutorial](https://www.youtube.com/watch?v=diB38AvVkHw&t=502s)**
+1. User sends login credentials 
+2. Server validates and makes sessions
+3. Sessions stored in the backend 
+4. Session id stored in browser as cookie 
+5. Cookie is used every time the user sends requests to the server
+
+```
+pip install Django-cors-headers
+pip install djangorestframework 
+
+Add to MIDDLEWARE: corsheaders.middleware.CorsMiddleware
+
+CORS_ALLOWED_ORIGINS to true to allow interaction with React
+CORS_ALLOWED_CREDENTIALS to true
+```
+**So, I ended up following [this JWT Token tutorial](Jet auth: https://medium.com/@ronakchitlangya1997/jwt-authentication-with-react-js-and-django-c034aae1e60d)**
+
+In terminal: `pip install --upgrade djangorestframework-simplejwt`
+
+| Errors I ran into  | Solutions |
+| ------------- | ------------- |
+| ``` app_users.AppUser.groups Reverse accessor ‘Group.user_set’ for ‘app_users.AppUser.group’ clashes with reverse accessor for ‘auth.User.groups’. HINT: Add of change a related_name argument to the definition for ‘app_users.AppUser.groups’ or ‘auth.User.groups’```  | [solution](https://stackoverflow.com/questions/49189402/auth-user-groups-fields-e304-reverse-accessor-for-user-groups-clashes-with)  |
+| ```django.db.migrations.exceptions.InconsistentMigrationHistory:Migration admin.0001_initial is applied before its dependency app_users.0001_ initial on database
+'default'```  | [solution](https://stackoverflow.com/questions/44651760/django-db-migrations-exceptions-inconsistentmigrationhistory)  |
+| ```authentication.CustomUser: (auth.E003) 'CustomUser .username' must be unique because it is named as the 'USERNAME_FIELD'.``` | Add unique=True to the models.py in the username field. Once a value is in a field, the same value can not be entered in any other instance of that model in any manner |
+| ```django.db.utils.OperationalError: no such table: authentication_customuser``` | [solution](https://stackoverflow.com/questions/25771755/django-operationalerror-no-such-table) | 
+| Foreign Key constraint failed | Need to add a [foreign key](https://docs.djangoproject.com/en/5.0/topics/db/examples/many_to_one/). `Username` field exists in three models, so there's conflict |
+| Foreign key [not iterable](https://stackoverflow.com/questions/60605587/django-error-argument-of-type-foreignkey-is-not-iterable)|  |
+
 #### [Things I want to add to the project](https://trello.com/b/Ic3mpKMk/sleeptrack-app)
 
