@@ -164,6 +164,15 @@ useEffect(() => {
 
 **Two Methods**: Session Auth and JWT Tokens:
 
+**Session Auth**: If the front and back end of the site are hosted on one domain
+
+**Token-based auth**: If backend is Django and front end is react, then front end is probably on different domains
+You can still use Session Auth if diff domains, but you need to use `X-CSRFToken` in the request header, esp for POST/DELETE where BE data will change!
+
+**What is CSRFToken? From [here](https://docs.djangoproject.com/en/1.11/ref/csrf/#module-django.middleware.csrf)**
+
+>This type of attack occurs when a malicious website contains a link, a form button or some JavaScript that is intended to perform some action on your website, using the credentials of a logged-in user who visits the malicious site in their browser. A related type of attack, ‘login CSRF’, where an attacking site tricks a user’s browser into logging into a site with someone else’s credentials, is also covered.
+
 **Session auth using [this tutorial](https://www.youtube.com/watch?v=diB38AvVkHw&t=502s)**
 1. User sends login credentials 
 2. Server validates and makes sessions
@@ -184,15 +193,26 @@ CORS_ALLOWED_CREDENTIALS to true
 
 In terminal: `pip install --upgrade djangorestframework-simplejwt`
 
+**Things to keep in mind:**
+
+How localStorage is used and how to [add headers to axios calls](https://drive.google.com/file/d/1BqKO1gakcb5xCSHrw0OfswDM8gae0SEg/view?usp=sharing)
+
+How curly brackets on post request are structured:
+```
+axios.post('http://localhost:8000/logout/',{
+                 refresh_token:localStorage.getItem('refresh_token')
+                 } ,{headers: {'Content-Type': 'application/json'}},  
+                 {withCredentials: true});
+```
+         
 | Errors I ran into  | Solutions |
 | ------------- | ------------- |
 | ``` app_users.AppUser.groups Reverse accessor ‘Group.user_set’ for ‘app_users.AppUser.group’ clashes with reverse accessor for ‘auth.User.groups’. HINT: Add of change a related_name argument to the definition for ‘app_users.AppUser.groups’ or ‘auth.User.groups’```  | [solution](https://stackoverflow.com/questions/49189402/auth-user-groups-fields-e304-reverse-accessor-for-user-groups-clashes-with)  |
-| ```django.db.migrations.exceptions.InconsistentMigrationHistory:Migration admin.0001_initial is applied before its dependency app_users.0001_ initial on database
-'default'```  | [solution](https://stackoverflow.com/questions/44651760/django-db-migrations-exceptions-inconsistentmigrationhistory)  |
+| ```django.db.migrations.exceptions.InconsistentMigrationHistory:Migration admin.0001_initial is applied before its dependency app_users.0001_ initial on database 'default'```  | [solution](https://stackoverflow.com/questions/44651760/django-db-migrations-exceptions-inconsistentmigrationhistory)  |
 | ```authentication.CustomUser: (auth.E003) 'CustomUser .username' must be unique because it is named as the 'USERNAME_FIELD'.``` | Add unique=True to the models.py in the username field. Once a value is in a field, the same value can not be entered in any other instance of that model in any manner |
 | ```django.db.utils.OperationalError: no such table: authentication_customuser``` | [solution](https://stackoverflow.com/questions/25771755/django-operationalerror-no-such-table) | 
-| Foreign Key constraint failed | Need to add a [foreign key](https://docs.djangoproject.com/en/5.0/topics/db/examples/many_to_one/). `Username` field exists in three models, so there's conflict |
-| Foreign key [not iterable](https://stackoverflow.com/questions/60605587/django-error-argument-of-type-foreignkey-is-not-iterable)|  |
+| Foreign Key constraint failed | Need to add a [foreign key](https://docs.djangoproject.com/en/5.0/topics/db/examples/many_to_one/). `Username` field exists in all three models, so there's conflict |
+| Foreign key [not iterable](https://stackoverflow.com/questions/60605587/django-error-argument-of-type-foreignkey-is-not-iterable)| Instead of `Username` in all three models, I did `Username` in User model, `UserAddS`(i.e., username + 'sss') in Sleep model, `UsernameAddS` in Dream model |
 
 #### [Things I want to add to the project](https://trello.com/b/Ic3mpKMk/sleeptrack-app)
 
