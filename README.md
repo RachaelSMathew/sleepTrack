@@ -83,6 +83,7 @@ Integration logic for handling the HTTP requests e.g. GET, POST, PUT, DELETE etc
 **What is [APIView](https://github.com/RachaelSMathew/sleepTrack/blob/393720046d7b918f87b5d8db9640f610c5af07f9/backendSleep/backend/dailySleep/views.py#L9)?**
 
 > Mixins are used to add specific functionality to views and can be used with APIView and GenericAPIView to create more complex views
+
 > APIView is the basic class for handling request and response for views and can be used for simple views.
 
 ### settings.py 
