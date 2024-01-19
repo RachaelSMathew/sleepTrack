@@ -1,12 +1,18 @@
 // Import the react JS packages 
 import axios from "axios";
-import {useState} from "react";
+import {useState, useEffect} from "react";
 
 // Define the Login function.
 export function Login() {
      const [username, setUsername] = useState('');
      const [password, setPassword] = useState('');
      const [wrongInfo, setWrongInfo] = useState(false)
+     // if the user is already logged in don't show login page 
+     useEffect(() => {
+          if(localStorage.getItem('access_token') != null){                   
+               window.location.href = '/'
+          }
+     }, []);
      // Create the submit method.
      const submit = async e => {
           e.preventDefault();
