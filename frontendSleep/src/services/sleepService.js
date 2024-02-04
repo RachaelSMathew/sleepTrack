@@ -3,12 +3,12 @@ import axios from 'axios';
 const userAddString = localStorage.getItem('username') + "sss"
 
 export function getSleep() {
-  return axios.get('http://127.0.0.1:8000/dailysleep/?username=' + userAddString)
+  return axios.get('https://djangosleepapp.onrender.com/dailysleep/?username=' + userAddString)
   .then(response => response.data)
 }
 
 export function deleteSleep(sleepId) {
-    return axios.delete('http://127.0.0.1:8000/dailysleep/' + sleepId + '/', {
+    return axios.delete('https://djangosleepapp.onrender.com/dailysleep/' + sleepId + '/', {
      method: 'DELETE',
      headers: {
        'Accept':'application/json',
@@ -19,7 +19,7 @@ export function deleteSleep(sleepId) {
   }
 
 export async function addSleep(sleep){
-    const response = await axios.post('http://127.0.0.1:8000/dailysleep/', {
+    const response = await axios.post('https://djangosleepapp.onrender.com/dailysleep/', {
         studentId: null,
         start: sleep.start,
         end: sleep.end,
@@ -29,7 +29,7 @@ export async function addSleep(sleep){
 }
 
 export async function updateSleep(sleid, sleep) {
-    const response = await axios.put('http://127.0.0.1:8000/dailysleep/' + sleid + '/', {
+    const response = await axios.put('https://djangosleepapp.onrender.com/dailysleep/' + sleid + '/', {
         start: sleep.start,
         end: sleep.end,
         userAddS: userAddString
